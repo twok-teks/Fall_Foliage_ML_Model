@@ -145,4 +145,4 @@ for loc in DAYLIGHT_GROUPS:
     generate_location_page(loc)
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    application.run(host="0.0.0.0", port=5000, debug=True)
