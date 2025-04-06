@@ -1,0 +1,121 @@
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to bottom, #fff8f0, #fcd5ce);
+    color: #3b2f2f;
+    padding: 30px;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #8b4513;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+form {
+    background-color: #fff8f0;
+    border: 2px solid #deb887;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: auto;
+    padding: 25px;
+    box-shadow: 0 6px 12px rgba(139, 69, 19, 0.2);
+}
+
+label {
+    font-weight: bold;
+    color: #5a3e36;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0 16px;
+    border: 1px solid #cd853f;
+    border-radius: 6px;
+    background-color: #fffaf0;
+}
+
+button {
+    background-color: #d2691e;
+    color: white;
+    padding: 10px 18px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #a0522d;
+}
+
+a button {
+    background-color: #8b0000;
+}
+
+a button:hover {
+    background-color: #5c1a00;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: url("https://www.transparenttextures.com/patterns/fallen-leaves.png"), #fff8f0;
+    background-size: cover;
+    color: #5a3e36;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Grid container for location links */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+a.location-link {
+    display: block;
+    background-color: #fef3e2;
+    border: 2px solid #d6a77a;
+    border-radius: 10px;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #5a3e36;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+a.location-link:hover {
+    background-color: #f5d7b0;
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #d6a77a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b3835b;
+}
