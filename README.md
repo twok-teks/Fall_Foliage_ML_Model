@@ -91,3 +91,26 @@ To set up and run this project locally or on your own server, follow these steps
 ```bash
 git clone https://github.com/twok-teks/Fall_Foliage_ML_Model.git
 cd Fall_Foliage_ML_Model
+```
+
+### 2. Set Up the Virtual Environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows, use venv\Scripts\activate
+```
+
+### 3. Install Required Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Application
+
+```bash
+python application.py --host=0.0.0.0
+```
+
+The app will be available at http://127.0.0.1:5000/. You can replace 127.0.0.1 with your server’s public IP address if you're running it on a remote server.
+
