@@ -4,8 +4,8 @@ import joblib
 import pandas as pd
 import numpy as np
 
-app = Flask(__name__)
-app.secret_key = 'super-secret'
+application = Flask(__name__)
+application.secret_key = 'super-secret'
 
 DAYLIGHT_GROUPS = {
     "aspen": {'13:52': 0, '13:53': 1, '13:54': 2, '13:55': 3},
@@ -66,7 +66,7 @@ def predict(model, precip, temp, daylight_group):
         'Past-Peak': FOLIAGE_LABELS[int(pred[0][2])]
     }
 
-@app.route('/')
+@application.route('/')
 def home():
     links = "".join(
         f"<a href='/{loc}'>{loc.replace('-', ' ').title()}</a><br>"
@@ -139,10 +139,10 @@ def generate_location_page(location):
         </body>
         </html>
         ''', location=location, times=times, prediction=prediction)
-    app.add_url_rule(f"/{location}", endpoint=f"{location}_page", view_func=location_func, methods=["GET", "POST"])
+    application.add_url_rule(f"/{location}", endpoint=f"{location}_page", view_func=location_func, methods=["GET", "POST"])
 
 for loc in DAYLIGHT_GROUPS:
     generate_location_page(loc)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
