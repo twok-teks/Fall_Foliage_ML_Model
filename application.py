@@ -8,7 +8,7 @@ application = Flask(__name__)
 application.secret_key = 'super-secret'
 
 DAYLIGHT_GROUPS = {
-    "aspen-testing": {'13:52': 0, '13:53': 1, '13:54': 2, '13:55': 3},
+    "aspen": {'13:52': 0, '13:53': 1, '13:54': 2, '13:55': 3},
     "montgomery": {'13:27': 0, '13:28': 1, '13:29': 2, '13:30': 3},
     "great-smoky-mountain": {'13:38': 0, '13:39': 1, '13:40': 2, '13:41': 3},
     "shenandoah-national-park": {'13:49': 0, '13:50': 1, '13:51': 2, '13:52': 3},
