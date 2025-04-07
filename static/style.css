@@ -1,121 +1,170 @@
+/* Load a pixelated font (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
-    font-family: 'Georgia', serif;
-    background: linear-gradient(to bottom, #fff8f0, #fcd5ce);
-    color: #3b2f2f;
-    padding: 30px;
+/* General Styles */
+html, body {
+    height: 100%;
+    font-family: 'Press Start 2P', cursive, sans-serif;
+    background: linear-gradient(135deg, #FFEFBA, #FFFFFF);
+    color: #4E342E;
     margin: 0;
-}
-
-h1 {
+    padding: 20px;
+    background-color: #f4e1b1;
     text-align: center;
-    color: #8b4513;
-    font-size: 2.5em;
-    margin-bottom: 20px;
 }
 
-form {
-    background-color: #fff8f0;
-    border: 2px solid #deb887;
-    border-radius: 12px;
-    max-width: 600px;
-    margin: auto;
-    padding: 25px;
-    box-shadow: 0 6px 12px rgba(139, 69, 19, 0.2);
+h1, h2 {
+    color: #6D4C41;
 }
 
-label {
-    font-weight: bold;
-    color: #5a3e36;
+a {
+    text-decoration: none;
+    color: #4E342E;
 }
 
-input[type="number"], select {
-    width: 100%;
-    padding: 8px;
-    margin: 8px 0 16px;
-    border: 1px solid #cd853f;
-    border-radius: 6px;
-    background-color: #fffaf0;
-}
-
+/* Buttons */
 button {
-    background-color: #d2691e;
-    color: white;
-    padding: 10px 18px;
-    margin: 5px 5px 0 0;
+    font-family: 'Press Start 2P', cursive;
+    padding: 10px 20px;
+    margin: 10px auto;
+    background-color: #D2691E;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
+    color: white;
     cursor: pointer;
-    font-weight: bold;
+    display: block;
 }
 
 button:hover {
-    background-color: #a0522d;
+    background-color: #A0522D;
 }
 
-a button {
-    background-color: #8b0000;
-}
-
-a button:hover {
-    background-color: #5c1a00;
-}
-
-ul {
-    list-style-type: square;
-    padding-left: 20px;
-}
-
-body {
-    font-family: 'Georgia', serif;
-    background: url("https://www.transparenttextures.com/patterns/fallen-leaves.png"), #fff8f0;
-    background-size: cover;
-    color: #5a3e36;
-    text-align: center;
-    padding: 20px;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* Grid container for location links */
-.link-grid {
+/* Location Boxes on Main Page */
+.location-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    padding: 20px;
-    max-width: 1000px;
-    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    margin: 30px auto;
 }
 
-a.location-link {
+.location-grid a {
     display: block;
-    background-color: #fef3e2;
-    border: 2px solid #d6a77a;
+    background-color: #fff3e0;
+    border: 4px ridge #bc6c25;
     border-radius: 10px;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #5a3e36;
-    font-weight: bold;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    padding: 25px 10px;
+    text-align: center;
+    box-shadow: 4px 4px 0 #bc6c25;
+    transition: transform 0.2s ease-in-out;
 }
 
-a.location-link:hover {
-    background-color: #f5d7b0;
+.location-grid a:hover {
     transform: scale(1.05);
 }
 
-button {
-    background-color: #d6a77a;
-    border: none;
-    padding: 10px 20px;
+/* Form and Input Styling */
+form {
+    max-width: 690px;
+    margin: 0 auto;
+    background-color: #ffe5b4;
+    padding: 20px;
     border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
+    border: 4px double #8B4513;
+    box-shadow: 4px 4px 0 #8B4513;
+    text-align: center;
 }
 
-button:hover {
-    background-color: #b3835b;
+input, select {
+    width: calc(35% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+/* Result Boxes */
+ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    flex: 1;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #fff8dc;
+    box-shadow: 3px 3px 0 #A1887F;
+    border-radius: 6px;
+}
+
+/* Colored Borders for Prediction Results */
+ul li:nth-child(1) {
+    border: 4px solid #FFD700;
+}
+
+ul li:nth-child(2) {
+    border: 4px solid #FF4500;
+}
+
+ul li:nth-child(3) {
+    border: 4px solid #A9A9A9;
+}
+
+.falling-leaf {
+    position: fixed;
+    top: -50px;
+    font-size: 24px;
+    animation: fall linear infinite;
+    opacity: 0.8;
+    z-index: 0;
+}
+
+/* Keyframes with horizontal wobble */
+@keyframes fall {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        top: -50px;
+    }
+    25% {
+        transform: translateX(-50px) rotate(90deg);
+    }
+    50% {
+        transform: translateX(0px) rotate(180deg);
+    }
+    75% {
+        transform: translateX(50px) rotate(270deg);
+    }
+    100% {
+        transform: translateX(0px) rotate(360deg);
+        top: 100vh;
+    }
+}
+
+/* Slight variation for randomness */
+.falling-leaf:nth-child(1) { left: 10%; animation-duration: 6s; }
+.falling-leaf:nth-child(2) { left: 30%; animation-duration: 8s; }
+.falling-leaf:nth-child(3) { left: 50%; animation-duration: 7s; }
+.falling-leaf:nth-child(4) { left: 70%; animation-duration: 9s; }
+.falling-leaf:nth-child(5) { left: 90%; animation-duration: 5s; }
+
+.fall-title {
+    font-size: 28px;
+    animation: wave 2s infinite ease-in-out;
+    display: inline-block;
+    color: #D2691E;
+    text-shadow: 2px 2px #fff3e0;
+}
+
+@keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+    75% { transform: rotate(1deg); }
 }

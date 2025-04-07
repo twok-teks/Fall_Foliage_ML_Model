@@ -68,10 +68,10 @@ def predict(model, precip, temp, daylight_group):
 
 @application.route('/')
 def home():
-    links = "".join(
-        f"<a href='/{loc}'>{loc.replace('-', ' ').title()}</a><br>"
-        for loc in DAYLIGHT_GROUPS.keys()
-    )
+    links = "<div class='location-grid'>" + "".join(
+    f"<div><a href='/{loc}'>{loc.replace('-', ' ').title()}</a></div>"
+    for loc in DAYLIGHT_GROUPS.keys()
+    ) + "</div>"
     return render_template_string('''
     <!DOCTYPE html>
     <html>
@@ -80,7 +80,8 @@ def home():
         <title>Fall Foliage Predictor</title>
     </head>
     <body>
-        <h1>Annual Fall Foliage ML Model</h1>
+        <h1 class="fall-title">FALL FRENZYYY!!!🍂</h1>
+        <h2>(A Fall Foliage ML Prediction Model)</h2>
         {{ links|safe }}
         <br><br>
         <a href="{{ url_for('static', filename='instructions.pdf') }}" target="_blank">
@@ -108,11 +109,18 @@ def generate_location_page(location):
             <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
             <title>{{ location.replace('-', ' ').title() }}</title>
         </head>
+        <button type="button" onclick="location.href='/'">Home</button><br></br>
         <body>
+            <div class="falling-leaf">🍂</div>
+            <div class="falling-leaf">🍁</div>
+            <div class="falling-leaf">🍃</div>
+            <div class="falling-leaf">🍂</div>
+            <div class="falling-leaf">🍁</div>
             <form method="POST">
+                
                 <h1>Welcome to {{ location.replace('-', ' ').title() }}!</h1>
                 <label>Average Daylight-Time:</label><br>
-                <select name="time">
+                <select name="time" required>
                     <option value="" disabled selected>Select</option>
                     {% for t in times %}
                         <option value="{{ t }}">{{ t }}</option>
@@ -123,7 +131,7 @@ def generate_location_page(location):
                 <label>Average Precipitation (inches):</label><br>
                 <input type="number" step="0.01" name="precip" placeholder="e.g. 1.23" required><br><br>
                 <button type="submit">Submit</button>
-                <button type="button" onclick="location.href='/'">Home</button>
+                
                 <a href="{{ url_for('static', filename='instructions.pdf') }}" target="_blank">
                     <button type="button">Instructions</button>
                 </a>
@@ -135,6 +143,21 @@ def generate_location_page(location):
                     <li>Peak: {{ prediction['Peak'] }}</li>
                     <li>Past-Peak: {{ prediction['Past-Peak'] }}</li>
                 </ul>
+                
+                <h2>Map View</h2>
+                <iframe
+                    width="100%"
+                    height="300"
+                    frameborder="0"
+                    style="border:4px solid #bc6c25; border-radius:10px;"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q={{ location.replace('-', ' ') }}&output=embed">
+                </iframe>
+                
+                <br></br>
+                <a href="https://www.google.com/maps/search/{{ location.replace('-', ' ') }}" target="_blank">
+                    <button type="button">Directions</button>
+                </a>
             {% endif %}
         </body>
         </html>
