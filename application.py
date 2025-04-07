@@ -84,7 +84,7 @@ def home():
         <h2>(A Fall Foliage ML Prediction Model)</h2>
         {{ links|safe }}
         <br><br>
-        <a href="{{ url_for('static', filename='instructions.pdf') }}" target="_blank">
+        <a href="{{ url_for('static', filename='documentation.pdf') }}" target="_blank">
             <button type="button">Documentation</button>
         </a>
     </body>
@@ -132,7 +132,7 @@ def generate_location_page(location):
                 <input type="number" step="0.01" name="precip" placeholder="e.g. 1.23" required><br><br>
                 <button type="submit">Submit</button>
                 
-                <a href="{{ url_for('static', filename='instructions.pdf') }}" target="_blank">
+                <a href="{{ url_for('static', filename='input-instructions.pdf') }}" target="_blank">
                     <button type="button">Instructions</button>
                 </a>
             </form>
