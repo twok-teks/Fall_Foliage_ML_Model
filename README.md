@@ -114,3 +114,14 @@ python application.py --host=0.0.0.0
 
 The app will be available at http://127.0.0.1:5000/. You can replace 127.0.0.1 with your server’s public IP address if you're running it on a remote server.
 
+## Deploying to Vercel
+
+This repository includes the Vercel configuration needed to run the Flask app as a Python serverless function.
+
+1. Push the repository to GitHub. Do not commit `venv/`; it is excluded by `.vercelignore`.
+2. Sign in to [Vercel](https://vercel.com/) and select **Add New Project**.
+3. Import this GitHub repository and keep the project root as the repository root.
+4. Leave the build settings at their defaults and select **Deploy**.
+
+Vercel detects `requirements.txt`, installs the Python dependencies, and uses `api/index.py` as the Flask entry point. The deployed URL is available from the project dashboard.
+
