@@ -8,10 +8,7 @@
   ],
   "functions": {
     "api/index.py": {
-      "includeFiles": [
-        "models/**",
-        "static/**"
-      ]
+      "includeFiles": "{models,static}/**"
     }
   }
 }
